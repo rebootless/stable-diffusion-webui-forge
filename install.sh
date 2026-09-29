@@ -58,10 +58,16 @@ if ! "$PYTHON" -c 'import clip' 2>/dev/null; then
         "https://github.com/openai/CLIP/archive/d50d76daa670286dd6cacf3bcd80b5e4823fc8e1.zip"
 fi
 
-uv pip install --python "$PYTHON" "numpy==1.26.4" "scikit-image==0.22.0"
+uv pip install --python "$PYTHON" "numpy==1.26.2" "scikit-image==0.21.0"
+
+printf 'numpy==1.26.2\nscikit-image==0.21.0\n' > "$VENV_DIR/constraints.txt"
+printf '[global]\nconstraint = %s\n' "$VENV_DIR/constraints.txt" > "$VENV_DIR/pip.conf"
 
 echo ""
-echo "==> Forge environment installed successfully"
+echo "==> Summary"
+
+echo ""
+echo "Forge environment installed successfully"
 
 echo ""
 echo "Run:"
