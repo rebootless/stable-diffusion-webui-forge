@@ -30,6 +30,9 @@ for TARGET in venv repositories tmp config_states config.json ui-config.json cac
     fi
 done
 
+echo ""
+echo "==> Summary"
+
 if [[ $REMOVED -eq 0 ]]; then
     echo "Nothing to remove."
 else
